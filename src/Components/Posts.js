@@ -41,20 +41,15 @@ const Posts = ({ username, caption, imageUrl, postId, user }) => {
           alt={username}
           className="post-avatar"
         ></Avatar>
-        <h3>{username}</h3>
+        <h3 className="PostUserName">{username}</h3>
       </div>
 
       <img className="post-image" src={imageUrl}></img>
-      <h3>{caption}</h3>
-      <div className="commentBox">
-        {comments.map((data) => (
-          <p>
-            <strong>{data.username}</strong>
-            {data.text}
-          </p>
-        ))}
+      <div className="postCaptionBox">
+        <h3 className="postCaption">{caption}</h3>
       </div>
-      <form>
+
+      <form className="commentFormBox">
         <input
           className="inputComment"
           type="text"
@@ -71,6 +66,14 @@ const Posts = ({ username, caption, imageUrl, postId, user }) => {
           Comment
         </button>
       </form>
+      <div className="commentBox">
+        {comments.map((comment) => (
+          <p className="commentSection">
+            <strong className="commentUserName">{`${comment.username} :`}</strong>
+            {comment.text}
+          </p>
+        ))}
+      </div>
     </div>
   );
 };

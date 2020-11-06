@@ -1,0 +1,26 @@
+.uploadContainer {
+  height: 200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 20px;
+  border: none;
+  box-shadow: 0px 0px 10px rgb(216, 216, 216);
+  background-color: #fff;
+  border-radius: 10px;
+}
+.progressBar {
+  width: 100%;
+  color: lime;
+}
+.UploadContainerInput {
+  border: none;
+  border-bottom: 1px solid gray;
+  background-color: none;
+  padding: 10px;
+  outline: none;
+}
+.fileUpload {
+  border: 0.5px solid lightgray;
+}

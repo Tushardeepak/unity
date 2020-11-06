@@ -93,12 +93,6 @@ function App() {
 
   return (
     <div className="App">
-      {user?.displayName ? (
-        <ImageUpload username={user.displayName} />
-      ) : (
-        <h1>Sorry Login Please</h1>
-      )}
-
       <Modal open={open} onClose={() => setOpen(false)}>
         <div style={modalStyle} className={classes.paper}>
           <form className="AppSignup">
@@ -156,26 +150,37 @@ function App() {
       </Modal>
       <div className="app-header">
         <img src={appLogo} className="app-headerImage"></img>
+        {user ? (
+          <Button onClick={() => auth.signOut()}> LogOut</Button>
+        ) : (
+          <div className="LoginContainer">
+            <Button onClick={() => setOpenSignIn(true)}> Sign In</Button>
+            <Button onClick={() => setOpen(true)}> Sign Up</Button>
+          </div>
+        )}
       </div>
-      {user ? (
-        <Button onClick={() => auth.signOut()}> LogOut</Button>
-      ) : (
-        <div className="LoginContainer">
-          <Button onClick={() => setOpenSignIn(true)}> Sign In</Button>
-          <Button onClick={() => setOpen(true)}> Sign Up</Button>
-        </div>
-      )}
 
-      {posts.map(({ id, post }) => (
-        <Posts
-          username={post.username}
-          caption={post.caption}
-          imageUrl={post.imageUrl}
-          key={id}
-          postId={id}
-          user={user}
-        />
-      ))}
+      <div className="MainSectionContainer">
+        <div className="MainPostBox">
+          {posts.map(({ id, post }) => (
+            <Posts
+              username={post.username}
+              caption={post.caption}
+              imageUrl={post.imageUrl}
+              key={id}
+              postId={id}
+              user={user}
+            />
+          ))}
+        </div>
+        <div className="MainCreatePostBox">
+          {user?.displayName ? (
+            <ImageUpload username={user.displayName} />
+          ) : (
+            <h1>Sorry Login Please</h1>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

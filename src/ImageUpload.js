@@ -2,6 +2,7 @@ import { Button } from "@material-ui/core";
 import React, { useState } from "react";
 import { db, storage } from "./firebase";
 import firebase from "firebase";
+import "./ImageUpload.css";
 
 const ImageUpload = ({ username }) => {
   const [caption, setCaption] = useState(null);
@@ -48,9 +49,10 @@ const ImageUpload = ({ username }) => {
     );
   };
   return (
-    <div>
-      <progress value={progress} max="100"></progress>
+    <div className="uploadContainer">
+      <progress value={progress} max="100" className="progressBar"></progress>
       <input
+        className="UploadContainerInput"
         type="text"
         placeholder="Enter a caption"
         value={caption}
