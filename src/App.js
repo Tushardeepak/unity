@@ -69,7 +69,6 @@ function App() {
   }, []);
 
   const signup = (event) => {
-    event.preventDefault();
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((authUser) => {
@@ -83,7 +82,6 @@ function App() {
   };
 
   const signin = (event) => {
-    event.preventDefault();
     auth
       .signInWithEmailAndPassword(email, password)
       .catch((error) => alert(error.message));
@@ -177,7 +175,7 @@ function App() {
           {user?.displayName ? (
             <ImageUpload username={user.displayName} />
           ) : (
-            <h1>Sorry Login Please</h1>
+            <h1 className="NotLoginMessage">Sorry Login Please</h1>
           )}
         </div>
       </div>

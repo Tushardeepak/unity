@@ -24,3 +24,7 @@
 .fileUpload {
   border: 0.5px solid lightgray;
 }
+.uploadContainerHeader {
+  font-size: 15px;
+  text-align: center;
+}

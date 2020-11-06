@@ -44,3 +44,7 @@
 .MainPostBox::-webkit-scrollbar {
   display: none;
 }
+.NotLoginMessage {
+  margin: 20px;
+  padding: 20px;
+}

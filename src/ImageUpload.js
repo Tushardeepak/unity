@@ -50,6 +50,7 @@ const ImageUpload = ({ username }) => {
   };
   return (
     <div className="uploadContainer">
+      <h1 className="uploadContainerHeader">{`Username: ${username}`}</h1>
       <progress value={progress} max="100" className="progressBar"></progress>
       <input
         className="UploadContainerInput"
