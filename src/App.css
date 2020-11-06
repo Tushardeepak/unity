@@ -31,8 +31,16 @@
   background-color: rgb(250, 246, 242);
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 .MainCreatePostBox {
   display: flex;
   flex-direction: column;
+}
+.MainPostBox {
+  height: 90vh;
+  overflow-y: scroll;
+}
+.MainPostBox::-webkit-scrollbar {
+  display: none;
 }
