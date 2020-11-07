@@ -69,6 +69,7 @@ function App() {
   }, []);
 
   const signup = (event) => {
+    event.preventDefault();
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((authUser) => {
@@ -82,6 +83,7 @@ function App() {
   };
 
   const signin = (event) => {
+    event.preventDefault();
     auth
       .signInWithEmailAndPassword(email, password)
       .catch((error) => alert(error.message));
@@ -172,11 +174,13 @@ function App() {
           ))}
         </div>
         <div className="MainCreatePostBox">
-          {user?.displayName ? (
-            <ImageUpload username={user.displayName} />
-          ) : (
-            <h1 className="NotLoginMessage">Sorry Login Please</h1>
-          )}
+          {user ? (
+            user.displayName ? (
+              <ImageUpload username={user.displayName} />
+            ) : (
+              <h1 className="NotLoginMessage">Sorry Login Please</h1>
+            )
+          ) : null}
         </div>
       </div>
     </div>

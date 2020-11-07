@@ -67,12 +67,14 @@ const Posts = ({ username, caption, imageUrl, postId, user }) => {
         </button>
       </form>
       <div className="commentBox">
-        {comments.map((comment) => (
-          <p className="commentSection">
-            <strong className="commentUserName">{`${comment.username} :`}</strong>
-            {comment.text}
-          </p>
-        ))}
+        {comments
+          ? comments.map((comment) => (
+              <p className="commentSection">
+                <strong className="commentUserName">{`${comment.username} :`}</strong>
+                {comment.text}
+              </p>
+            ))
+          : null}
       </div>
     </div>
   );
